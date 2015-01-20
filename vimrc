@@ -128,20 +128,40 @@ set splitright
 
 " Show unprintable characters
 set listchars=tab:\ ·,eol:¬
-map <silent> <F12> :set list!<CR>
+map <silent> <F12> :set list!<cr>
 
 set pastetoggle=<F10>
 
 " "}}}
 
 " Key mappings " {{{
-map <leader>rs :source ~/.vimrc<CR>
-map <leader>rt :tabnew ~/.vimrc<CR>
-map <leader>re :e ~/.vimrc<CR>
-autocmd! bufwritepost .vimrc source ~/.vimrc
+" vimrc
+map <leader>ee :tabnew ~/.vimrc<cr>
+map <leader>ss :source ~/.vimrc<cr>
 
-nnoremap <C-h> :tabprev<CR>
-nnoremap <C-l> :tabnext<CR>
+" reload vimrc when write
+autocmd! BufWritePost .vimrc source %
+
+" Fast saving
+map <silent> <leader>ww :w<cr>
+map <silent> <leader>wf :w!<cr>
+
+" Fast quiting
+map <silent> <leader>qw :wq<cr>
+map <silent> <leader>qf :q!<cr>
+map <silent> <leader>qq :q<cr>
+map <silent> <leader>qa :qa<cr>
+
+nnoremap <C-h> :tabprev<cr>
+nnoremap <C-l> :tabnext<cr>
+nnoremap <F5> :GundoTogge<cr>
+
+" Tagbar
+nmap <silent> <leader>tb :TagbarToggle<cr>
+
+" Nerd Tree
+nmap <silent> <leader>nt :NERDTreeToggle<cr>
+let NERDTreeDirArrows=0
 
 " }}}
 
@@ -156,10 +176,35 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
-" Colorscheme
+Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'benmills/vimux'
+Plugin 'bling/vim-airline'
+Plugin 'fatih/vim-go'
+Plugin 'gmarik/sudo-gui.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'mattn/emmet-vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'pragkent/neosnippet-snippets'
 Plugin 'pragkent/vim-lucius'
-Plugin 'vim-ruby/vim-ruby'
+Plugin 'pragkent/vim-snippets'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'sjl/gundo.vim'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/neosnippet'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-git'
+Plugin 'tpope/vim-projectionist'
 Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'vim-ruby/vim-ruby'
 
 call vundle#end()
 filetype plugin indent on
