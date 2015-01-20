@@ -1,4 +1,4 @@
-vimfiles
+# [pragkent](http://github.com/pragkent)'s [Vim configuration](http://github.com/pragkent/vimfiles)
 ========
 
-My vim configuration
+Happy coding!
