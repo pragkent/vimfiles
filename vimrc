@@ -152,16 +152,14 @@ map <silent> <leader>qf :q!<cr>
 map <silent> <leader>qq :q<cr>
 map <silent> <leader>qa :qa<cr>
 
+map <silent> <leader><cr> :noh<cr>
+
+" Tab
+map <leader>tn :tabnew 
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove 
 nnoremap <C-h> :tabprev<cr>
 nnoremap <C-l> :tabnext<cr>
-nnoremap <F5> :GundoTogge<cr>
-
-" Tagbar
-nmap <silent> <leader>tb :TagbarToggle<cr>
-
-" Nerd Tree
-nmap <silent> <leader>nt :NERDTreeToggle<cr>
-let NERDTreeDirArrows=0
 
 " }}}
 
@@ -205,9 +203,52 @@ Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 
 call vundle#end()
 filetype plugin indent on
+
+" Undo list
+nnoremap <F5> :GundoTogge<cr>
+
+" Tagbar
+nmap <silent> <leader>tb :TagbarToggle<cr>
+
+" Nerd Tree
+nmap <silent> <leader>nt :NERDTreeToggle<cr>
+let NERDTreeDirArrows = 0
+
+" Neo complete
+" Use neocomplete
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase
+let g:neocomplete#enable_smart_case = 1
+" Disable auto complete
+let g:neocomplete#disable_auto_complete = 1
+
+inoremap <expr><Tab> pumvisible() ? "\<C-n>" : neocomplete#start_manual_complete()
+inoremap <expr><C-y> neocomplete#close_popup()
+inoremap <expr><C-e> neocomplete#cancel_popup()
+inoremap <expr><C-g> neocomplete#undo_completion()
+
+" Neo snippet
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endi
 
 " Colorscheme
 colorscheme lucius
