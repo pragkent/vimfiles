@@ -1,12 +1,12 @@
-# [pragkent](http://github.com/pragkent)'s [Vim configuration](http://github.com/pragkent/vimfiles)
+# Kent's Vim Configuration
 ========
-#Usage
+# Usage
 
 ```bash
 git clone https://github.com/pragkent/vimfiles.git
-git submodule init
 
-# install Vundle
+# Install Vundle
+git submodule init
 git submodule update
 ```
 
