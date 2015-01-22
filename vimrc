@@ -15,9 +15,6 @@ set history=256
 " Time to wait after ESC
 set timeoutlen=250
 
-" Yanks go on clipboard instead
-set clipboard+=unamed
-
 " Walk directory tree up to $HOME looking for tags
 set tags=tags;$HOME
 
