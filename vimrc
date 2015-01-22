@@ -226,16 +226,16 @@ let g:neocomplete#enable_smart_case = 1
 " Disable auto complete
 let g:neocomplete#disable_auto_complete = 1
 
-inoremap <expr><Tab> pumvisible() ? "\<C-n>" : neocomplete#start_manual_complete()
+inoremap <expr><C-k> pumvisible() ? "\<C-n>" : neocomplete#start_manual_complete()
 inoremap <expr><C-y> neocomplete#close_popup()
 inoremap <expr><C-e> neocomplete#cancel_popup()
 inoremap <expr><C-g> neocomplete#undo_completion()
 
 " Neo snippet
 " Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
