@@ -44,7 +44,7 @@ set smartcase
 set incsearch
 
 " Magic for patterns
-set magic 
+set magic
 
 " Vim's default is archaic bourne shell, bring it up to the 90s
 let g:is_posix = 1
@@ -249,4 +249,14 @@ endi
 
 " Colorscheme
 colorscheme lucius
+
+" airline
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_theme = 'base16'
 " "}}}
