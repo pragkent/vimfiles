@@ -177,10 +177,16 @@ Plugin 'bling/vim-airline'
 Plugin 'fatih/vim-go'
 Plugin 'gmarik/sudo-gui.vim'
 Plugin 'godlygeek/tabular'
+Plugin 'google/vim-codefmt'
+Plugin 'google/vim-codefmtlib'
+Plugin 'google/vim-glaive'
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-syncopate'
 Plugin 'mattn/emmet-vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'pragkent/neosnippet-snippets'
+Plugin 'pragkent/vim-google-cpp-style'
 Plugin 'pragkent/vim-lucius'
 Plugin 'pragkent/vim-snippets'
 Plugin 'scrooloose/nerdcommenter'
@@ -246,6 +252,16 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endi
+
+" Maktaba
+call maktaba#plugin#Detect()
+
+" Glaive
+call glaive#Install()
+
+" Codefmt
+nmap <silent> <leader>ff :FormatCode<cr>
+Glaive codefmt clang_format_style=google
 
 " Colorscheme
 colorscheme lucius
