@@ -158,6 +158,25 @@ map <leader>tm :tabmove
 nnoremap <C-h> :tabprev<cr>
 nnoremap <C-l> :tabnext<cr>
 
+" Go
+let g:go_fmt_command = "goimports"
+au FileType go nmap <leader>s <plug>(go-implements)
+au FileType go nmap <leader>i <plug>(go-info)
+au FileType go nmap <leader>gd <plug>(go-doc)
+au FileType go nmap <leader>gv <plug>(go-doc-vertical)
+au FileType go nmap <leader>gb <plug>(go-doc-browser)
+
+au FileType go nmap <leader>r <plug>(go-run)
+au FileType go nmap <leader>b <plug>(go-build)
+au FileType go nmap <leader>t <plug>(go-test)
+au FileType go nmap <leader>c <plug>(go-coverage)
+
+au FileType go nmap <leader>ds <plug>(go-def-split)
+au FileType go nmap <leader>dv <plug>(go-def-vertical)
+au FileType go nmap <leader>dt <plug>(go-def-tab)
+
+au FileType go nmap <leader>e <plug>(go-rename)
+
 " }}}
 
 " AutoCommands " {{{
