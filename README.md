@@ -1,5 +1,4 @@
 # Kent's Vim Configuration
-========
 My vim configuration files based on Vundle.
 
 ## Install
