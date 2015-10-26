@@ -1,13 +1,23 @@
 # Kent's Vim Configuration
-========
-# Usage
+My vim configuration files based on Vundle.
+
+## Install
 
 ```bash
-git clone https://github.com/pragkent/vimfiles.git
+cd ~
+git clone https://github.com/pragkent/vimfiles.git .vim
+
+# link ~/.vimrc to ~/.vim/vimrc
+cd .vim
+./link.sh
 
 # Install Vundle
 git submodule init
 git submodule update
+
+# Install plugin - in Vim
+:BundleInstall
+
 ```
 
 Happy coding!
