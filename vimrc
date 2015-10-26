@@ -226,6 +226,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'cespare/vim-toml'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'kien/ctrlp.vim'
 
 call vundle#end()
 filetype plugin indent on
