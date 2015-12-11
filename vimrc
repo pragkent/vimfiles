@@ -229,6 +229,7 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'cespare/vim-toml'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'kien/ctrlp.vim'
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 filetype plugin indent on
