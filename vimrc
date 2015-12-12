@@ -247,6 +247,7 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'keith/tmux.vim'
 
 call vundle#end()
 filetype plugin indent on
