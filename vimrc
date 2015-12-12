@@ -155,8 +155,21 @@ map <silent> <leader><cr> :noh<cr>
 map <leader>tn :tabnew 
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove 
-nnoremap <C-h> :tabprev<cr>
-nnoremap <C-l> :tabnext<cr>
+
+" Win
+nmap <silent> <C-k> :wincmd k<cr>
+nmap <silent> <C-j> :wincmd j<cr>
+nmap <silent> <C-h> :wincmd h<cr>
+nmap <silent> <C-l> :wincmd l<cr>
+
+" Tmux
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
 
 " Go
 let g:go_fmt_command = "goimports"
@@ -233,6 +246,7 @@ Plugin 'rking/ag.vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
+Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
 filetype plugin indent on
