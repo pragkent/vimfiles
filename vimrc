@@ -229,7 +229,10 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'cespare/vim-toml'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'kien/ctrlp.vim'
+Plugin 'rking/ag.vim'
 Plugin 'rust-lang/rust.vim'
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
 
 call vundle#end()
 filetype plugin indent on
