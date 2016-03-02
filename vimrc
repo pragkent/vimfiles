@@ -208,12 +208,12 @@ Plugin 'benmills/vimux'
 Plugin 'bling/vim-airline'
 Plugin 'fatih/vim-go'
 Plugin 'godlygeek/tabular'
-Plugin 'google/vim-codefmt'
-Plugin 'google/vim-codefmtlib'
-Plugin 'google/vim-glaive'
-Plugin 'google/vim-maktaba'
-Plugin 'google/vim-syncopate'
-Plugin 'mattn/emmet-vim'
+"Plugin 'google/vim-codefmt'
+"Plugin 'google/vim-codefmtlib'
+"Plugin 'google/vim-glaive'
+"Plugin 'google/vim-maktaba'
+"Plugin 'google/vim-syncopate'
+"Plugin 'mattn/emmet-vim'
 " Plugin 'majutsushi/tagbar' -- too slow
 Plugin 'plasticboy/vim-markdown'
 Plugin 'pragkent/neosnippet-snippets'
@@ -296,14 +296,14 @@ if has('conceal')
 endi
 
 " Maktaba
-call maktaba#plugin#Detect()
+"call maktaba#plugin#Detect()
 
 " Glaive
-call glaive#Install()
+"call glaive#Install()
 
 " Codefmt
-nmap <silent> <leader>ff :FormatCode<cr>
-Glaive codefmt clang_format_style=google
+"nmap <silent> <leader>ff :FormatCode<cr>
+"Glaive codefmt clang_format_style=google
 
 " Colorscheme
 colorscheme lucius
