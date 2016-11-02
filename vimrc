@@ -129,6 +129,8 @@ map <silent> <F12> :set list!<cr>
 
 set pastetoggle=<F10>
 
+set guifont=Menlo:h14
+
 " "}}}
 
 " Key mappings " {{{
@@ -205,7 +207,8 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'benmills/vimux'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'fatih/vim-go'
 Plugin 'gmarik/sudo-gui.vim'
 Plugin 'godlygeek/tabular'
@@ -215,7 +218,7 @@ Plugin 'google/vim-glaive'
 Plugin 'google/vim-maktaba'
 Plugin 'google/vim-syncopate'
 Plugin 'mattn/emmet-vim'
-Plugin 'majutsushi/tagbar'
+"Plugin 'majutsushi/tagbar'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'pragkent/neosnippet-snippets'
 Plugin 'pragkent/vim-google-cpp-style'
@@ -249,6 +252,9 @@ Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'keith/tmux.vim'
+Plugin 'nvie/vim-flake8'
+Plugin 'IN3D/vim-raml'
+Plugin 'lepture/vim-jinja'
 
 call vundle#end()
 filetype plugin indent on
@@ -317,4 +323,5 @@ let g:airline_right_sep = ''
 let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_theme = 'base16'
+
 " "}}}
