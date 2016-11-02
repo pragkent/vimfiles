@@ -210,7 +210,6 @@ Plugin 'benmills/vimux'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'fatih/vim-go'
-Plugin 'gmarik/sudo-gui.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'google/vim-codefmt'
 Plugin 'google/vim-codefmtlib'
@@ -241,6 +240,7 @@ Plugin 'tpope/vim-rake'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-eunuch'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'cespare/vim-toml'
@@ -302,14 +302,14 @@ if has('conceal')
 endi
 
 " Maktaba
-call maktaba#plugin#Detect()
+"call maktaba#plugin#Detect()
 
 " Glaive
-call glaive#Install()
+"call glaive#Install()
 
 " Codefmt
-nmap <silent> <leader>ff :FormatCode<cr>
-Glaive codefmt clang_format_style=google
+"nmap <silent> <leader>ff :FormatCode<cr>
+"Glaive codefmt clang_format_style=google
 
 " Colorscheme
 colorscheme lucius
