@@ -88,7 +88,7 @@ set wrap
 syntax on
 
 " Mouse enabled all the time
-set mouse=a
+set mouse=v
 
 " Show line number
 set number
@@ -123,18 +123,18 @@ set completeopt=menu,preview
 set splitbelow
 set splitright
 
-" Show unprintable characters
-set listchars=tab:\ ·,eol:¬
+" Show unprintable character
+set listchars=tab:\ ·,eol:↩
 map <silent> <F12> :set list!<cr>
 
 set pastetoggle=<F10>
 
-set guifont=Menlo:h14
+set guifont=Menlo:h17
 
 " "}}}
 
-" Key mappings " {{{
-" vimrc
+" Key mappings "{{{
+" .vimrc
 map <leader>ee :tabnew ~/.vimrc<cr>
 map <leader>ss :source ~/.vimrc<cr>
 
@@ -154,9 +154,9 @@ map <silent> <leader>qa :qa<cr>
 map <silent> <leader><cr> :noh<cr>
 
 " Tab
-map <leader>tn :tabnew 
+map <leader>tn :tabnew<space>
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
+map <leader>tm :tabmove<space>
 
 " Win
 nmap <silent> <C-k> :wincmd k<cr>
@@ -173,155 +173,144 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
 
-" Go
-let g:go_fmt_command = "goimports"
-au FileType go nmap <leader>s <plug>(go-implements)
-au FileType go nmap <leader>i <plug>(go-info)
-au FileType go nmap <leader>gd <plug>(go-doc)
-au FileType go nmap <leader>gv <plug>(go-doc-vertical)
-au FileType go nmap <leader>gb <plug>(go-doc-browser)
-
-au FileType go nmap <leader>r <plug>(go-run)
-au FileType go nmap <leader>b <plug>(go-build)
-au FileType go nmap <leader>t <plug>(go-test)
-au FileType go nmap <leader>c <plug>(go-coverage)
-
-au FileType go nmap <leader>ds <plug>(go-def-split)
-au FileType go nmap <leader>dv <plug>(go-def-vertical)
-au FileType go nmap <leader>dt <plug>(go-def-tab)
-
-au FileType go nmap <leader>e <plug>(go-rename)
-
-" }}}
-
-" AutoCommands " {{{
 " "}}}
 
-" Scripts and Plugins " {{{
-filetype off
+" Plugins "{{{
 
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
+" Specify a directory for plugins
+call plug#begin('~/.vim/plugged')
 
-Plugin 'gmarik/Vundle.vim'
+" Plugins "{{{
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'jonathanfilip/vim-lucius'
 
-Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'benmills/vimux'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'fatih/vim-go'
-Plugin 'godlygeek/tabular'
-Plugin 'google/vim-codefmt'
-Plugin 'google/vim-codefmtlib'
-Plugin 'google/vim-glaive'
-Plugin 'google/vim-maktaba'
-Plugin 'google/vim-syncopate'
-Plugin 'mattn/emmet-vim'
-"Plugin 'majutsushi/tagbar'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'pragkent/neosnippet-snippets'
-Plugin 'pragkent/vim-google-cpp-style'
-Plugin 'pragkent/vim-lucius'
-Plugin 'pragkent/vim-snippets'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'sjl/gundo.vim'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'Shougo/neosnippet'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-git'
-Plugin 'tpope/vim-projectionist'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-eunuch'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'cespare/vim-toml'
-Plugin 'derekwyatt/vim-scala'
-Plugin 'kien/ctrlp.vim'
-Plugin 'rking/ag.vim'
-Plugin 'rust-lang/rust.vim'
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'keith/tmux.vim'
-Plugin 'nvie/vim-flake8'
-Plugin 'IN3D/vim-raml'
-Plugin 'lepture/vim-jinja'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'godlygeek/tabular'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-eunuch'
+Plug 'sjl/gundo.vim'
+Plug 'rking/ag.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'majutsushi/tagbar'
 
-call vundle#end()
-filetype plugin indent on
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-fugitive'
 
-" Undo list
-nnoremap <F5> :GundoTogge<cr>
+Plug 'fatih/vim-go'
+Plug 'keith/tmux.vim'
+Plug 'lepture/vim-jinja'
+Plug 'rust-lang/rust.vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-bundler'
+Plug 'cespare/vim-toml'
+Plug 'derekwyatt/vim-scala'
+Plug 'plasticboy/vim-markdown'
+Plug 'hdima/python-syntax'
 
-" Tagbar
-nmap <silent> <leader>tb :TagbarToggle<cr>
+" "}}}
 
-" Nerd Tree
-nmap <silent> <leader>nt :NERDTreeToggle<cr>
-let NERDTreeDirArrows = 0
+" Initialize plugin system
+call plug#end()
 
-" Neo complete
-" Use neocomplete
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase
-let g:neocomplete#enable_smart_case = 1
-" Disable auto complete
-let g:neocomplete#disable_auto_complete = 1
+" "}}}
 
-inoremap <expr><C-k> pumvisible() ? "\<C-n>" : neocomplete#start_manual_complete()
-inoremap <expr><C-y> neocomplete#close_popup()
-inoremap <expr><C-e> neocomplete#cancel_popup()
-inoremap <expr><C-g> neocomplete#undo_completion()
-
-" Neo snippet
-" Plugin key-mappings.
-" imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-" smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-" xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
-
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endi
-
-" Maktaba
-"call maktaba#plugin#Detect()
-
-" Glaive
-"call glaive#Install()
-
-" Codefmt
-"nmap <silent> <leader>ff :FormatCode<cr>
-"Glaive codefmt clang_format_style=google
-
-" Colorscheme
+" Colorscheme "{{{
 colorscheme lucius
+LuciusDarkLowContrast
+" "}}}
 
-" airline
+" Plugins Configurations "{{{
+
+" NERDCommenter "{{{
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" "}}}
+
+
+" AirLine "{{{
+
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
+
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.whitespace = 'Ξ'
-let g:airline_theme = 'base16'
+let g:airline_theme = 'lucius'
+
+" "}}}
+
+" Golang "{{{
+
+let g:go_fmt_command = "goimports"
+
+" Highlights
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+" Key map
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+
+au FileType go nmap <leader>ds <Plug>(go-def-split)
+au FileType go nmap <leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <leader>dt <Plug>(go-def-tab)
+
+au FileType go nmap <leader>gd <Plug>(go-doc)
+au FileType go nmap <leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <leader>gb <Plug>(go-doc-browser)
+
+au FileType go nmap <leader>s <Plug>(go-implements)
+au FileType go nmap <leader>i <Plug>(go-info)
+au FileType go nmap <leader>e <Plug>(go-rename)
+
+" "}}}
+
+" YAPF "{{{
+au FileType python nmap <leader>y :call yapf#YAPF()<cr>
+" "}}}
+
+" Gundo "{{{
+nmap <F5> :GundoToggle<cr>
+" "}}}
+
+" Nerd Tree "{{{
+nmap <silent> <leader>nt :NERDTreeToggle<cr>
+" "}}}
+
+" Tagbar "{{{
+nmap <silent> <leader>tb :TagbarToggle<cr>
+" "}}}
 
 " "}}}
