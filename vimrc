@@ -7,7 +7,7 @@ set nocompatible
 scriptencoding utf-8
 set encoding=utf-8
 set fileencoding=utf-8
-set fileencodings=utf-8,gb18030,cp936,latin1
+set fileencodings=ucs-bom,utf-8,gb18030,cp936,latin1
 
 " How many lines to remember in history
 set history=256
@@ -87,7 +87,7 @@ set wrap
 " Enable syntax
 syntax on
 
-" Mouse enabled all the time
+" Mouse enabled in visual mode
 set mouse=v
 
 " Show line number
@@ -158,6 +158,7 @@ map <leader>tn :tabnew<space>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove<space>
 
+
 " Win
 nmap <silent> <C-k> :wincmd k<cr>
 nmap <silent> <C-j> :wincmd j<cr>
@@ -184,6 +185,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jonathanfilip/vim-lucius'
+Plug 'airblade/vim-rooter'
+Plug 'haya14busa/incsearch.vim'
 
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -195,27 +198,39 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-eunuch'
-Plug 'sjl/gundo.vim'
-Plug 'rking/ag.vim'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'majutsushi/tagbar'
-
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-git'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-db'
+Plug 'sjl/gundo.vim'
+Plug 'majutsushi/tagbar'
+Plug 'easymotion/vim-easymotion'
+" Plug 'Valloric/YouCompleteMe'
+
+Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'fatih/vim-go'
 Plug 'keith/tmux.vim'
 Plug 'lepture/vim-jinja'
-Plug 'rust-lang/rust.vim'
 Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rake'
-Plug 'tpope/vim-bundler'
 Plug 'cespare/vim-toml'
-Plug 'derekwyatt/vim-scala'
 Plug 'plasticboy/vim-markdown'
 Plug 'hdima/python-syntax'
+Plug 'edkolev/tmuxline.vim'
+Plug 'hashivim/vim-hashicorp-tools'
+Plug 'posva/vim-vue'
+Plug 'leafgarland/typescript-vim'
+Plug 'pangloss/vim-javascript'
+
+Plug 'google/vim-maktaba'
+Plug 'bazelbuild/vim-bazel'
+Plug 'fatih/vim-hclfmt'
+Plug 'jvirtanen/vim-hcl'
+Plug 'ambv/black'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'editorconfig/editorconfig-vim'
 
 " "}}}
 
@@ -263,6 +278,16 @@ let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_theme = 'lucius'
 
+" Extensions
+let g:airline#extensions#tmuxline#enabled = 0
+let g:airline#extensions#tmuxline#color_template = 'visual'
+
+" "}}}
+
+" tmuxline "{{{
+"
+let g:tmuxline_powerline_separators = 0
+
 " "}}}
 
 " Golang "{{{
@@ -302,7 +327,7 @@ au FileType python nmap <leader>y :call yapf#YAPF()<cr>
 " "}}}
 
 " Gundo "{{{
-nmap <F5> :GundoToggle<cr>
+nmap <silent> <leader>ud :GundoToggle<cr>
 " "}}}
 
 " Nerd Tree "{{{
@@ -311,6 +336,35 @@ nmap <silent> <leader>nt :NERDTreeToggle<cr>
 
 " Tagbar "{{{
 nmap <silent> <leader>tb :TagbarToggle<cr>
+" "}}}
+
+" Black "{{{
+nmap <silent> <leader>= :Black<cr>
+" "}}}
+
+" FZF "{{{
+nmap <silent> <leader>f :Files<CR>
+" "}}}
+
+
+" incsearch.vim "{{{
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+" "}}}
+
+" rooter "{{{
+let g:rooter_manual_only = 1
+" "}}}
+
+" YouCompleteMe "{{{
+"
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_python_binary_path = 'python'
+
+au FileType python nmap <leader>gd :YcmCompleter GetDoc<cr>
+au FileType python nmap <leader>gt :YcmCompleter GoTo<cr>
+
 " "}}}
 
 " "}}}
