@@ -131,6 +131,9 @@ set pastetoggle=<F10>
 
 set guifont=Menlo:h17
 
+" swp file directory
+set directory=$HOME/.vim/swp//
+
 " "}}}
 
 " Key mappings "{{{
@@ -185,7 +188,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jonathanfilip/vim-lucius'
-Plug 'airblade/vim-rooter'
+" Plug 'aonemd/kuroi.vim'
+" Plug 'airblade/vim-rooter'
 Plug 'haya14busa/incsearch.vim'
 
 Plug 'scrooloose/nerdcommenter'
@@ -205,6 +209,7 @@ Plug 'tpope/vim-db'
 Plug 'sjl/gundo.vim'
 Plug 'majutsushi/tagbar'
 Plug 'easymotion/vim-easymotion'
+Plug 'junegunn/vim-easy-align'
 " Plug 'Valloric/YouCompleteMe'
 
 Plug 'christoomey/vim-tmux-navigator'
@@ -226,11 +231,30 @@ Plug 'google/vim-maktaba'
 Plug 'bazelbuild/vim-bazel'
 Plug 'fatih/vim-hclfmt'
 Plug 'jvirtanen/vim-hcl'
-Plug 'ambv/black'
-Plug '/usr/local/opt/fzf'
+"Plug 'ambv/black'
+Plug '/home/linuxbrew/.linuxbrew/opt/fzf/'
 Plug 'junegunn/fzf.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'bfrg/vim-cpp-modern'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/async.vim'
+Plug 'mattn/vim-lsp-settings'
+Plug 'tenfyzhong/jce-highlight'
+Plug 'tpope/vim-commentary'
+Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-startify'
+Plug 'bfrg/vim-cpp-modern'
+
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+Plug 'rust-lang/rust.vim'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'robbles/logstash.vim'
+Plug 'github/copilot.vim'
+
+" Plug 'mg979/vim-visual-multi'
 
 " "}}}
 
@@ -320,6 +344,9 @@ au FileType go nmap <leader>s <Plug>(go-implements)
 au FileType go nmap <leader>i <Plug>(go-info)
 au FileType go nmap <leader>e <Plug>(go-rename)
 
+
+au FileType cpp nmap <C-]> <Plug>(lsp-definition)
+
 " "}}}
 
 " YAPF "{{{
@@ -359,12 +386,25 @@ let g:rooter_manual_only = 1
 
 " YouCompleteMe "{{{
 "
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_python_binary_path = 'python'
+" let g:ycm_autoclose_preview_window_after_completion = 1
+" let g:ycm_python_binary_path = 'python'
+"
+" au FileType python nmap <leader>gd :YcmCompleter GetDoc<cr>
+" au FileType python nmap <leader>gt :YcmCompleter GoTo<cr>
 
-au FileType python nmap <leader>gd :YcmCompleter GetDoc<cr>
-au FileType python nmap <leader>gt :YcmCompleter GoTo<cr>
+" "}}}
 
+let g:lsp_diagnostics_echo_cursor = 1
+
+
+autocmd Filetype jce setlocal ts=4 sw=4 expandtab
+ 
+" Easy Align"{{{
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 " "}}}
 
 " "}}}
